@@ -1,0 +1,15 @@
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.AssemblyReference.cache
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.SuggestedBindingRedirects.cache
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Properties.Resources.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.GenerateResource.cache
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.CoreCompileInputs.cache
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.PlanesRepForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\TechRepair.exe.config
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\TechRepair.exe
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\TechRepair.pdb
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.exe
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.pdb
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.PrincipalForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.AdminUsuariosForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.EquiposCelularesForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.SistemaAtencionForm.resources
