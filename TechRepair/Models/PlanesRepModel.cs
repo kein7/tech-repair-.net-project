@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using TechRepair._Repositories;
 
 namespace TechRepair.Models
 {
@@ -15,7 +18,8 @@ namespace TechRepair.Models
         private int valor_plan;
         private string estado_plan;
         private int plazo_entrega;
-        private int gama_id;
+        private string gama_planes;
+        
 
         [DisplayName("Plan ID")]
         public int Plan_id { get => plan_id; set => plan_id = value; }
@@ -26,15 +30,24 @@ namespace TechRepair.Models
         public string Plan_reparacion { get => plan_reparacion; set => plan_reparacion = value; }
 
         [DisplayName("Valor del Plan")]
+        [Required(ErrorMessage = "El valor del plan es requerido")]
         public int Valor_plan { get => valor_plan; set => valor_plan = value; }
 
         [DisplayName("Estado del Plan")]
+        [Required(ErrorMessage = "El estado del plan es requerido")]
         public string Estado_plan { get => estado_plan; set => estado_plan = value; }
 
         [DisplayName("Plazo de entrega")]
+        [Required(ErrorMessage = "El plazo de entrega es requerido")]
         public int Plazo_entrega { get => plazo_entrega; set => plazo_entrega = value; }
 
-        [DisplayName("Gama ID")]
-        public int Gama_id { get => gama_id; set => gama_id = value; }
+        [DisplayName("Nombre de la Gama")]
+        [Required(ErrorMessage = "El nombre de la gama es requerido")]
+        public string Gama { get => gama_planes; set => gama_planes = value; }
+
+       
     }
 }
+
+
+    

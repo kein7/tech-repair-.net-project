@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechRepair.Views;
 using TechRepair.Models;
+using System.Xml.Linq;
 
 namespace TechRepair.Presenters
 {
@@ -13,14 +14,16 @@ namespace TechRepair.Presenters
     {
         private IPlanesRepForm view;
         private IPlanesRepRepository repository;
+        private IGamasRepository repositoryGamas;
         private BindingSource planesBindingSource;
         private IEnumerable<PlanesRepModel> planesList;
-
-        public PlanesRepPresenter(IPlanesRepForm view, IPlanesRepRepository repository)
+        private IEnumerable<GamasModel> gamasList;
+        public PlanesRepPresenter(IPlanesRepForm view, IPlanesRepRepository repository, IGamasRepository repositoryGamas)
         {
             this.planesBindingSource = new BindingSource();
             this.view = view;
             this.repository = repository;
+            this.repositoryGamas = repositoryGamas;
 
             this.view.SearchEvent += BuscarPlan;
             this.view.AddNewEvent += AñadirNuevoPlan;
@@ -38,8 +41,15 @@ namespace TechRepair.Presenters
 
         private void LoadAllPlanesList()
         {
-            planesList = repository.GetAll();
+            planesList = repository.GetAllPlanes();
+            //transformGamaRepository(planesList);
             planesBindingSource.DataSource = planesList;
+            
+        }
+
+        private void LoadAllGamas()
+        {
+            gamasList = repositoryGamas.GetAllGamas();
         }
 
         private void BuscarPlan(object sender, EventArgs e)
@@ -47,9 +57,9 @@ namespace TechRepair.Presenters
             bool emptyValue = string.IsNullOrWhiteSpace(this.view.SearchValue);
             if (emptyValue == false)
             {
-                planesList = repository.GetByValue(this.view.SearchValue);
+                planesList = repository.GetByValuePlanes(this.view.SearchValue);
             }
-            else planesList = repository.GetAll();
+            else planesList = repository.GetAllPlanes();
             planesBindingSource.DataSource = planesList;
         }
 
@@ -65,7 +75,7 @@ namespace TechRepair.Presenters
             view.PlanValor = planes.Valor_plan.ToString();
             view.PlanEstado = planes.Estado_plan;
             view.PlazoEntrega = planes.Plazo_entrega.ToString();
-            view.GamaId = planes.Gama_id.ToString();
+            view.Gama = planes.Gama;
             view.IsEdit = true;
         }
         private void GuardarPlan(object sender, EventArgs e)
@@ -79,13 +89,29 @@ namespace TechRepair.Presenters
             {
                 
             }
-            model.Plan_reparacion = view.PlanReparacion;
-            model.Valor_plan = Convert.ToInt32(view.PlanValor);
-            model.Estado_plan = view.PlanEstado;
-            model.Plazo_entrega = Convert.ToInt32(view.PlazoEntrega);
-            model.Gama_id = Convert.ToInt32(view.GamaId);
             try
             {
+                LoadAllGamas();
+
+                model.Plan_reparacion = view.PlanReparacion;
+                model.Valor_plan = Convert.ToInt32(view.PlanValor);
+                model.Estado_plan = view.PlanEstado;
+                model.Plazo_entrega = Convert.ToInt32(view.PlazoEntrega);
+                
+
+                //La idea es traer esto con el metodo GetByValueGamas en vez de asi
+                foreach(var gamas in gamasList)
+                {
+                    if (view.Gama == gamas.Tipo_Gama)
+                    {
+                        model.Gama = gamas.Gama_ID.ToString();
+                        break;
+                    }
+                }
+                
+                //transformGamaBindingSource(model);
+                //model.Gama_id = Convert.ToInt32(view.GamaId);
+            
                 new Common.ModelDataValidation().Validate(model);
                 if (view.IsEdit)
                 {
@@ -115,7 +141,7 @@ namespace TechRepair.Presenters
             view.PlanValor = "0";
             view.PlanEstado = "";
             view.PlazoEntrega = "0";
-            view.GamaId = "0";
+            view.Gama = "0";
         }
 
         private void CancelarAccion(object sender, EventArgs e)
@@ -136,7 +162,7 @@ namespace TechRepair.Presenters
             catch (Exception ex)
             {
                 view.IsSucessfull = false;
-                view.Message = "Un error ha ocurrido, no se pudo eliminar correctamente"; 
+                view.Message = "Un error ha ocurrido, no se pudo eliminar correctamente " + ex; 
             }
         }
 

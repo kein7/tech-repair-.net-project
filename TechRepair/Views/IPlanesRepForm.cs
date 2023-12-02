@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechRepair.Models;
 
 namespace TechRepair.Views
 {
@@ -14,7 +15,7 @@ namespace TechRepair.Views
         string PlanValor { get; set; }
         string PlanEstado { get; set; }
         string PlazoEntrega { get; set; }
-        string GamaId { get; set; }
+        string Gama { get; set; }
 
         string SearchValue { get; set; }
         bool IsEdit { get; set; }

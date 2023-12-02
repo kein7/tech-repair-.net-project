@@ -1,5 +1,4 @@
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.AssemblyReference.cache
-C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.SuggestedBindingRedirects.cache
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Properties.Resources.resources
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.GenerateResource.cache
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.CoreCompileInputs.cache
@@ -9,7 +8,15 @@ C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\TechRepair.exe
 C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\TechRepair.pdb
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.exe
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.pdb
-C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.PrincipalForm.resources
 C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.AdminUsuariosForm.resources
-C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.EquiposCelularesForm.resources
-C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\ModernGUI.SistemaAtencionForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\Microsoft.VisualBasic.PowerPacks.Design.dll
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\Microsoft.VisualBasic.PowerPacks.dll
+C:\Users\kevin\source\repos\TechRepair\TechRepair\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.csproj.CopyComplete
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.ClientesForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.OrdenesForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.LoginForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.MainForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.PasswordRecoverForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.WelcomeForm.resources
+C:\Users\kevin\source\repos\TechRepair\TechRepair\obj\Debug\TechRepair.Views.ProfileForm.resources

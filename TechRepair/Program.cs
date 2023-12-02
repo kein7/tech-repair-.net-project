@@ -8,6 +8,7 @@ using TechRepair.Presenters;
 using TechRepair._Repositories;
 using TechRepair.Views;
 using System.Configuration;
+using ModernGUI;
 
 namespace TechRepair
 {
@@ -22,10 +23,24 @@ namespace TechRepair
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             string sqlConnectionString = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-            IPrincipalForm principalForm = new PrincipalForm();
+            /*
+            ISistemaNegocioForm sistemaNegocioForm = new SistemaNegocioForm();
+            new SistemaNegocioPresenter(sistemaNegocioForm, sqlConnectionString);
+            Application.Run((Form)sistemaNegocioForm);
+            */
 
-            new PrincipalPresenter(principalForm, sqlConnectionString);
-            Application.Run((Form)principalForm);
+            /*
+            ISistemaAtencionForm sistemaAtencionForm = new SistemaAtencionForm();
+            new SistemaAtencionPresenter(sistemaAtencionForm, sqlConnectionString);
+            Application.Run((Form)sistemaAtencionForm);
+            */
+
+            ILoginForm loginForm = new LoginForm();
+            ILoginRepository loginRepository = new LoginRepository(sqlConnectionString);
+            new LoginPresenter(loginForm, loginRepository, sqlConnectionString); 
+
+            Application.Run((Form)loginForm);
+            
         }
     }
 }

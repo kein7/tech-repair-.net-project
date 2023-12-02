@@ -25,6 +25,33 @@ namespace TechRepair
             tcPlanes.TabPages.Remove(tpPlanesDatos);
         }
 
+        public void SetPlanesListBindingSource(BindingSource planesList)
+        {
+            dgvPlanes.DataSource = planesList;
+        }
+
+        // Singleton pattern
+        private static PlanesRepForm instance;
+        public static PlanesRepForm GetInstance(Form parentForm)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                MainForm mainForm = (MainForm)parentForm;
+                instance = new PlanesRepForm();
+                instance.TopLevel = false;
+                instance.FormBorderStyle = FormBorderStyle.None;
+                instance.Dock = DockStyle.Fill;
+                mainForm.ShowPlanesFormInPanel(instance);
+            }
+            else
+            {
+                if (instance.WindowState == FormWindowState.Minimized)
+                    instance.WindowState = FormWindowState.Normal;
+                instance.BringToFront();
+            }
+            return instance;
+        }
+
         private void AssociateAndRaiseViewEvents()
         {
             btnBuscar.Click += delegate { SearchEvent?.Invoke(this, EventArgs.Empty); };
@@ -84,7 +111,7 @@ namespace TechRepair
         public string PlanValor { get => tbxValorPlan.Text; set => tbxValorPlan.Text = value; }
         public string PlanEstado { get => cbxEstadoPlan.Text; set => cbxEstadoPlan.Text = value; }
         public string PlazoEntrega { get => tbxPlazoEntregaPlan.Text; set => tbxPlazoEntregaPlan.Text = value; }
-        public string GamaId { get => cbxGama.Text; set => cbxGama.Text = value; }
+        public string Gama { get => cbxGama.Text; set => cbxGama.Text = value; }
 
         public string SearchValue { get => txbBusqueda.Text; set => txbBusqueda.Text = value; }
         public bool IsEdit { get => isEdit; set => isEdit = value; }
@@ -100,39 +127,10 @@ namespace TechRepair
         public event EventHandler SaveEvent;
         public event EventHandler CancelEvent;
 
-        // Singleton pattern
-        private static PlanesRepForm instance;
-        public static PlanesRepForm GetInstance(Form parentForm)
-        { 
-            if (instance == null || instance.IsDisposed)
-            {
-                PrincipalForm principalForm = (PrincipalForm)parentForm;
-                instance = new PlanesRepForm();
-                instance.TopLevel = false;
-                instance.FormBorderStyle = FormBorderStyle.None;
-                instance.Dock = DockStyle.Fill;
-                principalForm.ShowChildFormInPanel(instance);
-            }
-            else
-            {
-                if (instance.WindowState == FormWindowState.Minimized)
-                    instance.WindowState = FormWindowState.Normal;
-                instance.BringToFront();
-            }
-            return instance;
-        }
-
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        public void SetPlanesListBindingSource(BindingSource planesList)
-        {
-            dgvPlanes.DataSource = planesList;
-        }
-
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -220,6 +218,15 @@ namespace TechRepair
 
         private void lbTituloPlanes_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void PlanesRepForm_Load(object sender, EventArgs e)
+        {
+            // TODO: esta línea de código carga datos en la tabla 'servicio_tecnicoDataSet.planes' Puede moverla o quitarla según sea necesario.
+            this.planesTableAdapter.Fill(this.servicio_tecnicoDataSet.planes);
+            // TODO: esta línea de código carga datos en la tabla 'servicio_tecnicoDataSet.gamas' Puede moverla o quitarla según sea necesario.
+            this.gamasTableAdapter.Fill(this.servicio_tecnicoDataSet.gamas);
 
         }
     }

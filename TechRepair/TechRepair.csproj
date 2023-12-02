@@ -33,6 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Design, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -48,47 +50,119 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Cache\Cargos.cs" />
+    <Compile Include="Common\Cache\UserLoginCache.cs" />
+    <Compile Include="EmailService\MasterEmailService.cs" />
+    <Compile Include="EmailService\SystemSupportEmail.cs" />
+    <Compile Include="Models\AdmUsuarios2Model.cs" />
+    <Compile Include="Models\AdmUsuariosModel.cs" />
+    <Compile Include="Models\ClientesModel.cs" />
+    <Compile Include="Models\DireccionesModel.cs" />
+    <Compile Include="Models\EquiposCelularesModel.cs" />
+    <Compile Include="Models\GamasModel.cs" />
+    <Compile Include="Models\IAdmUsuariosRepository.cs" />
+    <Compile Include="Models\IClientesRepository.cs" />
+    <Compile Include="Models\IDireccionesRepository.cs" />
+    <Compile Include="Models\IEquiposCelularesRepository.cs" />
+    <Compile Include="Models\IGamasRepository.cs" />
+    <Compile Include="Models\ILoginRepository.cs" />
+    <Compile Include="Models\IOrdenesRepository.cs" />
     <Compile Include="Models\IPlanesRepRepository.cs" />
+    <Compile Include="Models\ITecnicosRepository.cs" />
+    <Compile Include="Models\ITercerosRepository.cs" />
+    <Compile Include="Models\OrdenesModel.cs" />
     <Compile Include="Models\PlanesRepModel.cs" />
+    <Compile Include="Models\TecnicosModel.cs" />
+    <Compile Include="Models\TercerosModel.cs" />
+    <Compile Include="Presenters\AdmUsuariosPresenter.cs" />
     <Compile Include="Presenters\Common\ModelDataValidation.cs" />
+    <Compile Include="Presenters\LoginPresenter.cs" />
+    <Compile Include="Presenters\MainPresenter.cs" />
+    <Compile Include="Presenters\OrdenesPresenter.cs" />
+    <Compile Include="Presenters\PasswordRecoverPresenter.cs" />
     <Compile Include="Presenters\PlanesRepPresenter.cs" />
-    <Compile Include="Presenters\PrincipalPresenter.cs" />
+    <Compile Include="Presenters\ProfilePresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="servicio_tecnicoDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>servicio_tecnicoDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Views\AdminUsuariosForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\AdminUsuariosForm.designer.cs">
       <DependentUpon>AdminUsuariosForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\EquiposCelularesForm.cs">
+    <Compile Include="Views\ClientesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\EquiposCelularesForm.designer.cs">
-      <DependentUpon>EquiposCelularesForm.cs</DependentUpon>
+    <Compile Include="Views\ClientesForm.Designer.cs">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\IAdminUsuariosForm.cs" />
+    <Compile Include="Views\IProfileForm.cs" />
+    <Compile Include="Views\ProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\ProfileForm.Designer.cs">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ILoginForm.cs" />
+    <Compile Include="Views\IMainForm.cs" />
+    <Compile Include="Views\IOrdenesForm.cs" />
+    <Compile Include="Views\IPasswordRecoverForm.cs" />
     <Compile Include="Views\IPlanesRepForm.cs" />
-    <Compile Include="Views\IPrincipalForm.cs" />
+    <Compile Include="Views\ISistemaAtencionForm.cs" />
+    <Compile Include="Views\ISistemaNegocioForm.cs" />
+    <Compile Include="Views\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdenesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\OrdenesForm.Designer.cs">
+      <DependentUpon>OrdenesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PasswordRecoverForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PasswordRecoverForm.Designer.cs">
+      <DependentUpon>PasswordRecoverForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\PlanesRepForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\PlanesRepForm.designer.cs">
       <DependentUpon>PlanesRepForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\PrincipalForm.cs">
+    <Compile Include="Views\WelcomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Views\PrincipalForm.designer.cs">
-      <DependentUpon>PrincipalForm.cs</DependentUpon>
+    <Compile Include="Views\WelcomeForm.Designer.cs">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\SistemaAtencionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\SistemaAtencionForm.designer.cs">
-      <DependentUpon>SistemaAtencionForm.cs</DependentUpon>
-    </Compile>
+    <Compile Include="_Repositories\AdmUsuariosRepository.cs" />
     <Compile Include="_Repositories\BaseRepository.cs" />
+    <Compile Include="_Repositories\ClientesRepository.cs" />
+    <Compile Include="_Repositories\DireccionesRepository.cs" />
+    <Compile Include="_Repositories\EquiposCelularesRepository.cs" />
+    <Compile Include="_Repositories\GamasRepository.cs" />
+    <Compile Include="_Repositories\LoginRepository.cs" />
+    <Compile Include="_Repositories\OrdenesRepository.cs" />
     <Compile Include="_Repositories\PlanesRepRepository.cs" />
+    <Compile Include="_Repositories\TecnicosRepository.cs" />
+    <Compile Include="_Repositories\TercerosRepository.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -101,17 +175,29 @@
     <EmbeddedResource Include="Views\AdminUsuariosForm.resx">
       <DependentUpon>AdminUsuariosForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\EquiposCelularesForm.resx">
-      <DependentUpon>EquiposCelularesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\ClientesForm.resx">
+      <DependentUpon>ClientesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\ProfileForm.resx">
+      <DependentUpon>ProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\OrdenesForm.resx">
+      <DependentUpon>OrdenesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PasswordRecoverForm.resx">
+      <DependentUpon>PasswordRecoverForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\PlanesRepForm.resx">
       <DependentUpon>PlanesRepForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Views\PrincipalForm.resx">
-      <DependentUpon>PrincipalForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SistemaAtencionForm.resx">
-      <DependentUpon>SistemaAtencionForm.cs</DependentUpon>
+    <EmbeddedResource Include="Views\WelcomeForm.resx">
+      <DependentUpon>WelcomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -122,10 +208,20 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="servicio_tecnicoDataSet1.xsc">
+      <DependentUpon>servicio_tecnicoDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="servicio_tecnicoDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>servicio_tecnicoDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="servicio_tecnicoDataSet1.xss">
+      <DependentUpon>servicio_tecnicoDataSet1.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

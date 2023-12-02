@@ -11,7 +11,9 @@ namespace TechRepair.Models
         void Add(PlanesRepModel planesRepModel);
         void Edit(PlanesRepModel planesRepModel);
         void Delete(int planes_id);
-        IEnumerable<PlanesRepModel> GetAll();
-        IEnumerable<PlanesRepModel> GetByValue(string value);
+        IEnumerable<PlanesRepModel> GetAllPlanes();
+        IEnumerable<PlanesRepModel> GetByValuePlanes(string value);
+
+        IEnumerable<PlanesRepModel> GetPlanId(string planReparacion, string gama);
     }
 }
